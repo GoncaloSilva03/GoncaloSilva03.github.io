@@ -1,90 +1,78 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
-
-
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> SPRK </title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="ind.jpg">
 
-  
-      
 </head>
+
 <body>
 
-
-<!--       WORKING ONLY IN MICROSOFT EXPLORE
-
-<audio id="audioID" controls="" style="width: 0%;">
-<source src="./music.mp3" type="audio/mpeg">
-
-Please update your browser does not support the audio element.
-
-</audio>
-
-<script type="text/javascript">
-  function autoplay(){
-      var r =confirm("Would You Like To AutoPlay Music?");
-      if (r == true) {
-          document.getElementById("audioID").play();
-      }
-    }
-  </script>
-
-  <script>
-  autoplay();
-  </script> 
-
--->
-
-
-
-
-
-    <audio id="myaudio" autoplay="true" src="music.mp3">
-    Update your browser. Your browser does not support HTML audio
-	</audio> 
-
-  <script>
-    var audio = document.getElementById("myaudio");
-    audio.volume = 0.03;
-  </script>
-
-
-
-
-
-  
   <div class="profile-card">
 
-  <div class="card-header">
+    <div class="card-header">
 
-  <div class="pic">
+      <div class="pic">
 
-    <img src="pic.jpg" alt="">
+        <img src="pic.jpg" alt="">
 
-  </div>
+      </div>
 
-  <div class="name">SPRK</div>
+      <div class="name">Gonçalo Silva</div>
 
 
-  <div class="sm">
+      <div class="sm">
 
-      <a href="http://steamcommunity.com/profiles/76561198836716926" class="fab fa-steam"></a>
-        
-      <a href="https://www.twitch.tv/sparkiizera" class="fab fa-twitch"></a>
+        <a href="http://steamcommunity.com/profiles/76561198836716926" class="fab fa-steam"></a>
 
-      <a href="https://www.youtube.com/channel/UCT7hL7bxQhUpnYLhYqUOUDA" class="fab fa-youtube"></a>
+        <a href="https://www.twitch.tv/sparkiizera" class="fab fa-twitch"></a>
 
+        <a href="https://www.youtube.com/channel/UCT7hL7bxQhUpnYLhYqUOUDA" class="fab fa-youtube"></a>
+
+
+      </div>
       
-  </div>
+
+      <div class="audio_div" >
+        <audio controls id="myaudio" src="music.mp3" autoplay="true">
+          Update your browser. Your browser does not support HTML audio
+        </audio>
+
+        <button id="playButton" >
+          <img src="play.png" alt="" style="display: none;">
+        </button>
+
+      </div>
 
 
 </body>
+
+<script>
+  const audio = document.getElementById("myaudio");
+  audio.volume = 0.15;
+
+  const playButton = document.getElementById("playButton");
+  playButton.addEventListener("click", function () {
+    audio.play();
+  });
+
+  const pauseButton = document.getElementById("pauseButton");
+  pauseButton.addEventListener("click", function () {
+    audio.pause();
+  });
+
+  window.addEventListener("load", function (event) {
+    setTimeout(() => {
+      const myButton = document.getElementById("playButton");
+      myButton.click();
+    }, 500);
+  });
+
+</script>
+
 </html>
