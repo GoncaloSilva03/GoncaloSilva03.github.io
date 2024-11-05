@@ -8,11 +8,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="src/img/ind.jpg">
-
+  <script src="js/howler.js/dist/howler.min.js"></script>
 </head>
 
-<body>
-
+<body onclick="startAudio()">
   <div class="profile-card">
     <div class="card-header">
 
@@ -25,51 +24,32 @@
       </div>
 
       <div class="sm">
-
         <a href="http://steamcommunity.com/profiles/76561198836716926" class="fab fa-steam"></a>
-
         <a href="https://www.twitch.tv/sparkiizera" class="fab fa-twitch"></a>
-
         <a href="https://www.youtube.com/channel/UCT7hL7bxQhUpnYLhYqUOUDA" class="fab fa-youtube"></a>
-
-
       </div>
-
-
-      <div class="audio_div">
-        <audio controls id="myaudio" src="src/musics/music2.mp3">
-          Update your browser. Your browser does not support HTML audio
-        </audio>
-
-        <button id="playButton">
-          <img src="src/img/play.png" alt="" style="display: none;">
-        </button>
-
-      </div>
-
-
     </div>
 </body>
 
 <script>
+  let audio;
 
-  // Música de Website
-  const audio = document.getElementById("myaudio");
-  audio.volume = 0.20;
-
-  const playButton = document.getElementById("playButton");
-  playButton.addEventListener("click", function () {
-    audio.play();
-  });
-
-  setTimeout(() => {
-      const myButton = document.getElementById("playButton");
-      myButton.click();
-    }, 500);
-    
-  window.addEventListener("load", function (event) {
-   
-  });
+  function loadAudio(){
+    audio = new Howl({
+      src: "src/musics/music.mp3",
+      html5: true,
+      loop: true,
+      volume: 0.20,
+      autoplay: true
+    });
+  }
+  
+  function startAudio() {
+    if(audio === undefined){
+      loadAudio();
+      audio.play();
+    }
+  }
 
 </script>
 
